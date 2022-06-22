@@ -11,7 +11,7 @@ app = Flask(__name__)
 ### DATABASE SETUPS ############
 ###############################
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://anthony:antpassword@localhost/restaurants_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://anthony:antpassword@localhost/social_media_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)

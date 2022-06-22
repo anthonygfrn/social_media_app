@@ -6,6 +6,7 @@ from puppycompanyblog.models import User, BlogPost
 from puppycompanyblog.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from puppycompanyblog.users.picture_handler import add_profile_pic
 
+
 users = Blueprint('users', __name__)
 
 @users.route('/register', methods=['GET', 'POST'])
@@ -25,6 +26,7 @@ def register():
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
+
     form = LoginForm()
     if form.validate_on_submit():
         # Grab the user from our User Models table
@@ -53,10 +55,13 @@ def login():
     return render_template('login.html', form=form)
 
 
+
+
 @users.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('core.index'))
+
 
 @users.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -83,6 +88,7 @@ def account():
 
     profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
     return render_template('account.html', profile_image=profile_image, form=form)
+
 
 @users.route("/<username>")
 def user_posts(username):

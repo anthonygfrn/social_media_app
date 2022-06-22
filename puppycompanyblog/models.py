@@ -7,7 +7,7 @@ from flask_login import UserMixin
 def load_user(user_id):
     return User.query.get(user_id)
 
-class User(db.model, UserMixin):
+class User(db.Model, UserMixin):
     # Create a table in the db
     __tablename__ = 'users'
 
